@@ -1,0 +1,43 @@
+{% extends "base.html" %} {%block head%} {%endblock%} {%block title%} Result
+{%endblock%} {%block body%}
+<h1 style="text-align: center">VGG16</h1>
+<div class="container">
+  The ImageNet Large Scale Visual Recognition Challenge (ILSVRC) is an annual
+  computer vision competition. Each year, teams compete on two tasks. The first
+  is to detect objects within an image coming from 200 classes, which is called
+  object localization. The second is to classify images, each labeled with one
+  of 1000 categories, which is called image classification. VGG 16 was proposed
+  by Karen Simonyan and Andrew Zisserman of the Visual Geometry Group Lab of
+  Oxford University in 2014 in the paper “VERY DEEP CONVOLUTIONAL NETWORKS FOR
+  LARGE-SCALE IMAGE RECOGNITION”. This model won the 1st and 2nd place on the
+  above categories in 2014 ILSVRC challenge.
+</div>
+<h3 style="text-align: center; margin-top: 100px">Architecture</h3>
+<div class="container">
+  The input to the network is image of dimensions (224, 224, 3). The first two
+  layers have 64 channels of 3*3 filter size and same padding. Then after a max
+  pool layer of stride (2, 2), two layers which have convolution layers of 256
+  filter size and filter size (3, 3). This followed by a max pooling layer of
+  stride (2, 2) which is same as previous layer. Then there are 2 convolution
+  layers of filter size (3, 3) and 256 filter. After that there are 2 sets of 3
+  convolution layer and a max pool layer. Each have 512 filters of (3, 3) size
+  with same padding.This image is then passed to the stack of two convolution
+  layers. In these convolution and max pooling layers, the filters we use is of
+  the size 3*3 instead of 11*11 in AlexNet and 7*7 in ZF-Net. In some of the
+  layers, it also uses 1*1 pixel which is used to manipulate the number of input
+  channels. There is a padding of 1-pixel (same padding) done after each
+  convolution layer to prevent the spatial feature of the image.
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-5">
+      <img src="/static/images/vgg1.jpg" alt="" width="500px" height="300px" />
+    </div>
+    <div class="col-2"></div>
+    <div class="col-5">
+      <img src="/static/images/vgg2.jpg" alt="" width="500px" height="300px" />
+    </div>
+  </div>
+</div>
+
+{%endblock%}

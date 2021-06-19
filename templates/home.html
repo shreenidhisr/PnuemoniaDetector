@@ -1,0 +1,113 @@
+{% extends "base.html" %} {%block head%}
+<style>
+  body {
+    background-image: url("/static/images/bg_2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+.example1 {
+ height: 50px;	
+ overflow: hidden;
+ position: relative;
+}
+.example1 h3 {
+ font-size: 3em;
+ color: rgb(241, 217, 195);
+ position: absolute;
+ width: 100%;
+ height: 100%;
+ margin: 0;
+ line-height: 50px;
+ text-align: center;
+ /* Starting position */
+ -moz-transform:translateX(100%);
+ -webkit-transform:translateX(100%);	
+ transform:translateX(100%);
+ /* Apply animation to this element */	
+ -moz-animation: example1 15s linear infinite;
+ -webkit-animation: example1 15s linear infinite;
+ animation: example1 15s linear infinite;
+}
+/* Move it (define the animation) */
+@-moz-keyframes example1 {
+ 0%   { -moz-transform: translateX(100%); }
+ 100% { -moz-transform: translateX(-100%); }
+}
+@-webkit-keyframes example1 {
+ 0%   { -webkit-transform: translateX(100%); }
+ 100% { -webkit-transform: translateX(-100%); }
+}
+@keyframes example1 {
+ 0%   { 
+ -moz-transform: translateX(100%); /* Firefox bug fix */
+ -webkit-transform: translateX(100%); /* Firefox bug fix */
+ transform: translateX(100%); 		
+ }
+ 100% { 
+ -moz-transform: translateX(-100%); /* Firefox bug fix */
+ -webkit-transform: translateX(-100%); /* Firefox bug fix */
+ transform: translateX(-100%); 
+ }
+}
+
+</style>
+
+{%endblock%} {%block title%} Home page {%endblock%} {%block body%}
+<div class="example1">
+  <h3>Welcome to pneumonia predictor </h3>
+  </div>
+<div class="container">
+  
+  <div class="row" style="margin-top: 13vh">
+    
+      <div class="col-4" >
+      
+      
+
+      <div class="card bg-dark border-white" style="width: 24rem;">
+        
+        <div class="card-body">
+          <h5 class="card-title text-warning">About project</h5>
+          <p class="card-text text-white">Our model predicts pneumonia based on chest x-ray beyond radiologist level.
+            our model was trained using over 5000 images.Our model made use of Convolution neural networks 
+            which enhanced accuracy of our model exceeding the previously trained model like VGG16 and DenceNet
+            Our model gave 92% accuracy,So feel free and confident to use this model!
+          </p>
+          <a href="#" class="btn btn-primary">More..</a>
+        </div>
+      </div>
+    
+    </div>
+    <div class="col-3"></div>
+    <div
+      class="col-5"
+      style="
+        color: white;
+        
+      "
+    >
+      <div class="card bg-dark border-white" style="width: 30rem;">
+        
+        <div class="card-body">
+          <h5 class="card-title text-warning">Well pneumonia can be,</h5>
+          <p class="card-text text-white">
+            Infection that inflames air sacs in one or both lungs, which may fill with
+            fluid. With pneumonia, the air sacs may fill with fluid or pus. The
+            infection can be life-threatening to anyone, but particularly to infants,
+            children and people over 65. Symptoms include a cough with phlegm or pus,
+            fever, chills and difficulty breathing. Antibiotics can treat many forms
+            of pneumonia. Some forms of pneumonia can be prevented by vaccines..</p>
+            <br>
+          <a href="#" class="btn btn-primary">More..</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row" ">
+    
+    <div class="col"></div>
+  </div>
+</div>
+
+{%endblock%}

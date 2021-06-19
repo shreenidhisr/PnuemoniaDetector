@@ -1,0 +1,71 @@
+{% extends "base.html" %} {%block head%}
+<style>
+  body {
+    background-color: thistle;
+  }
+</style>
+<script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"
+></script>
+
+{%endblock%} {%block title%} Pneumonia {%endblock%} {%block body%}
+
+<script>
+  function readURL(input) {
+    console.log("this called");
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        $("#blah").attr("src", e.target.result).width(500).height(500);
+      };
+
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+</script>
+{% if message %}
+<div class="alert alert-danger">{{ message }}</div>
+{% endif %}
+
+<div class="row" style="margin-bottom: 300px">
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+    <center><h1>Pneumonia Predictor</h1></center>
+    <br /><br />
+    <div class="card card-body" style="background-color: rgb(235, 215, 178)">
+      <center><h3>Please upload the X-Ray of Person</h3></center>
+      <form
+        class="form-horizontal"
+        action="{{ url_for('pneumoniapredictPage') }}"
+        method="POST"
+        enctype="multipart/form-data"
+      >
+        <center>
+          <input
+            onchange="readURL(this);"
+            type="file"
+            name="image"
+            placeholder="Upload Image"
+          />
+          <br />
+          <br />
+          <img
+            class="img-fluid"
+            id="blah"
+            src="#"
+            alt="UPLOADED IMAGE WILL APPEAR HERE"
+          />
+          <br />
+          <br />
+          <input class="btn btn-info" type="submit" />
+        </center>
+      </form>
+    </div>
+  </div>
+  <div class="col-md-3"></div>
+</div>
+
+{%endblock%}
